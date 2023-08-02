@@ -22,7 +22,7 @@ def piechart():
     percentages = [round((value / total) * 100, 2) for value in values]
 
     # Create the pie chart using Plotly Express
-    fig = px.pie(names=labels, values=values, title='No. of data')
+    fig = px.pie(names=labels, values=values, title='Dataset')
 
     # Show the chart
     st.plotly_chart(fig)
