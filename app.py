@@ -15,13 +15,17 @@ def card_layout():
     # Set custom CSS for the blue background color
     st.markdown("""
     <style>
-    .blue-card {
-        background-color: #007BFF;
-        color: white;
-        padding: 15px;
-        border-radius: 10px;
-    }
-    </style>
+        .sidebar .sidebar-content {
+            position: sticky;
+            top: 10px;
+        }
+        .reportview-container .main {
+            background-color: #f8f9fa;
+            padding: 2rem;
+            box-shadow: 2px 2px 5px lightgrey;
+            border-radius: 10px;
+        }
+        </style>
     """, unsafe_allow_html=True)
 
     # Create a 3-column layout
