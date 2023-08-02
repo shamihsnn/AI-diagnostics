@@ -21,7 +21,7 @@ with st.sidebar:
                            ['Home','Diabetes Prediction',
                             'Heart Disease Prediction',
                             'Parkinsons Prediction'],
-                           icons=['activity', 'heart', 'person'],
+                           icons=['house','activity', 'heart', 'person'],
                            default_index=0)
 
 if (selected == 'Home'):
