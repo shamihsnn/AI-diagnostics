@@ -11,6 +11,7 @@ from streamlit_option_menu import option_menu
 import streamlit as st
 import plotly.express as px
 
+
 def piechart():
 
     # Sample data for the pie chart
@@ -73,43 +74,6 @@ def grouped_bar_graph():
 
 if __name__ == '__main__':
     grouped_bar_graph()
-    # Set custom CSS for the blue background color
-    st.markdown("""
-    <style>
-    .blue-card {
-        background-color: #007BFF;
-        color: white;
-        padding: 15px;
-        border-radius: 10px;
-    }
-    </style>
-    """, unsafe_allow_html=True)
-
-    # Create a single row layout
-    row1 = st.columns(3)
-
-    # Card 1
-    with row1[0]:
-        with st.container():
-            st.markdown("### Heart", unsafe_allow_html=True)
-            st.write("Total Data: 303")
-
-        # Show the affected vs. non-affected bar graph in the first column
-        affectedvsNonAffected()
-
-    # Card 2
-    with row1[1]:
-        with st.container():
-            st.markdown("### Diabetes", unsafe_allow_html=True)
-            st.write("Total Data: 768")
-    
-    with row1[2]:
-        with st.container():
-            st.markdown("### Parkinsons", unsafe_allow_html=True)
-            st.write("Total Data: 195")
-
-        # Show the grouped bar graph in the second column
-        grouped_bar_graph()
 
 
 
