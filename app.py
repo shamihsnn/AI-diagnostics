@@ -11,46 +11,25 @@ from streamlit_option_menu import option_menu
 import streamlit as st
 import plotly.express as px
 
-def card_layout():
-    # Set custom CSS for the blue background color
-    st.markdown("""
-    <style>
-        .sidebar .sidebar-content {
-            position: sticky;
-            top: 10px;
-        }
-        .reportview-container .main {
-            background-color: white;
-            padding: 2rem;
-            box-shadow: 2px 2px 5px lightgrey;
-            border-radius: 10px;
-        }
-        </style>
-    """, unsafe_allow_html=True)
+def piechart():
 
-    # Create a 3-column layout
-    col1, col2, col3 = st.columns(3)
+    # Sample data for the pie chart
+    labels = ['Heart', 'Diabetes', 'Parkinsons']
+    values = [303, 768, 195]
 
-    # Card 1
-    with col1:
-        with st.container():
-            st.markdown("### Heart", unsafe_allow_html=True)
-            st.write("Total Data: 303")
+    # Calculate percentage values
+    total = sum(values)
+    percentages = [round((value / total) * 100, 2) for value in values]
 
-    # Card 2
-    with col2:
-        with st.container():
-            st.markdown("### Diabetes", unsafe_allow_html=True)
-            st.write("Total Data: 768")
+    # Create the pie chart using Plotly Express
+    fig = px.pie(names=labels, values=values, title='No. of data')
 
-    # Card 3
-    with col3:
-        with st.container():
-            st.markdown("### Parkinsons", unsafe_allow_html=True)
-            st.write("Total Data: 195")
+    # Show the chart
+    st.plotly_chart(fig)
 
 if __name__ == '__main__':
-    card_layout()
+    piechart()
+
 
 def affectedvsNonAffected():
     # Sample data for the bar graph
@@ -60,40 +39,31 @@ def affectedvsNonAffected():
 
     # Combine data for "Affected" and "Not Affected" into a single DataFrame
     import pandas as pd
-    df_affected = pd.DataFrame({
-        'Diseases': Diseases,
-        'Status': 'Affected',
-        'Value': affected_data
+    df = pd.DataFrame({
+        'Diseases': Diseases * 2,
+        'Status': ['Affected'] * 3 + ['Not Affected'] * 3,
+        'Value': affected_data + not_affected_data
     })
-
-    df_not_affected = pd.DataFrame({
-        'Diseases': Diseases,
-        'Status': 'Not Affected',
-        'Value': not_affected_data
-    })
-
-    df_combined = pd.concat([df_affected, df_not_affected], axis=0)
 
     # Create the bar graph using Plotly Express
-    fig = px.bar(df_combined, x='Diseases', y='Value', color='Status', barmode='group',
+    fig = px.bar(df, x='Diseases', y='Value', color='Status', barmode='group',
                  title='Affected vs. Not Affected Bar Graph')
 
     # Show the graph using Streamlit
     st.plotly_chart(fig)
 
+if __name__ == '__main__':
+    affectedvsNonAffected()
+
 def grouped_bar_graph():
     # Sample data for the grouped bar graph
     categories = ['Heart', 'Diabetes', 'Parkinsons']
-    test = [0.819672131147541 * 100, 0.7727272727272727 * 100, 0.8717948717948718 * 100]
-    training = [0.8512396694214877 * 100, 0.7833876221498371 * 100, 0.8717948717948718 * 100]
+    test = [0.819672131147541*100, 0.7727272727272727*100, 0.8717948717948718*100]
+    training = [0.8512396694214877*100, 0.7833876221498371*100, 0.8717948717948718*100]
 
     # Create a DataFrame for the data
     import pandas as pd
-    df = pd.DataFrame({
-        'Diseases': categories,
-        'Test data': test,
-        'Training data': training
-    })
+    df = pd.DataFrame({'Diseases': categories, 'Test data': test, 'Training data': training})
 
     # Create the grouped bar graph using Plotly Express
     fig = px.bar(df, x='Diseases', y=['Test data', 'Training data'], barmode='group', title='Accuracy test')
@@ -102,6 +72,7 @@ def grouped_bar_graph():
     st.plotly_chart(fig)
 
 if __name__ == '__main__':
+    grouped_bar_graph()
     # Set custom CSS for the blue background color
     st.markdown("""
     <style>
