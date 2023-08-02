@@ -43,6 +43,21 @@ def affectedvsNonAffected():
     # Show the graph using Streamlit
     st.plotly_chart(fig)
 
+
+    categories = ['Heart', 'Diabetes', 'Parkinsons']
+    test = [0.819672131147541*100, 0.7727272727272727*100, 0.8717948717948718*100]
+    training = [0.8512396694214877*100, 0.7833876221498371*100, 0.8717948717948718*100]
+
+    # Create a DataFrame for the data
+    import pandas as pd
+    df = pd.DataFrame({'Diseases': categories, 'Test data': test, 'Training data': training})
+
+    # Create the grouped bar graph using Plotly Express
+    fig = px.bar(df, x='Diseases', y=['Test data', 'Training data'], barmode='group', title='Accuracy test')
+
+    # Show the graph using Streamlit
+    st.plotly_chart(fig)
+
 if __name__ == '__main__':
     affectedvsNonAffected()
 
