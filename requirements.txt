@@ -4,3 +4,4 @@ streamlit
 streamlit-option-menu
 scikit-learn
 protobuf
+plotly.express
