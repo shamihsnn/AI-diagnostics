@@ -1,7 +1,10 @@
 import streamlit as st
 import plotly.express as px
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0b90a5515865f99e8b347cd292b9dba6682398b3
 def affectedvsNonAffected():
     # Sample data for the bar graph
     Diseases = ['Heart', 'Diabetes', 'Parkinsons']
@@ -29,7 +32,11 @@ def affectedvsNonAffected():
                  title='Affected vs. Not Affected Bar Graph')
 
     # Show the graph using Streamlit
+<<<<<<< HEAD
     st.plotly_chart(fig, use_container_width=True)  # Added use_container_width=True to make it smaller
+=======
+    st.plotly_chart(fig)
+>>>>>>> 0b90a5515865f99e8b347cd292b9dba6682398b3
 
 def grouped_bar_graph():
     # Sample data for the grouped bar graph
@@ -49,7 +56,11 @@ def grouped_bar_graph():
     fig = px.bar(df, x='Diseases', y=['Test data', 'Training data'], barmode='group', title='Accuracy test')
 
     # Show the graph using Streamlit
+<<<<<<< HEAD
     st.plotly_chart(fig, use_container_width=True)  # Added use_container_width=True to make it smaller
+=======
+    st.plotly_chart(fig)
+>>>>>>> 0b90a5515865f99e8b347cd292b9dba6682398b3
 
 if __name__ == '__main__':
     # Set custom CSS for the blue background color
@@ -58,14 +69,23 @@ if __name__ == '__main__':
     .blue-card {
         background-color: #007BFF;
         color: white;
+<<<<<<< HEAD
         padding: 5px;
+=======
+        padding: 15px;
+>>>>>>> 0b90a5515865f99e8b347cd292b9dba6682398b3
         border-radius: 10px;
     }
     </style>
     """, unsafe_allow_html=True)
 
+<<<<<<< HEAD
     # Create a single row layout with padding between the graphs
     row1 = st.columns(2)
+=======
+    # Create a single row layout
+    row1 = st.columns(3)
+>>>>>>> 0b90a5515865f99e8b347cd292b9dba6682398b3
 
     # Card 1
     with row1[0]:
@@ -76,14 +96,25 @@ if __name__ == '__main__':
         # Show the affected vs. non-affected bar graph in the first column
         affectedvsNonAffected()
 
+<<<<<<< HEAD
     # Add padding between the graphs
     st.write("")  # This will add some vertical space between the graphs
 
+=======
+>>>>>>> 0b90a5515865f99e8b347cd292b9dba6682398b3
     # Card 2
     with row1[1]:
         with st.container():
             st.markdown("### Diabetes", unsafe_allow_html=True)
             st.write("Total Data: 768")
+<<<<<<< HEAD
+=======
+    
+    with row1[2]:
+        with st.container():
+            st.markdown("### Parkinsons", unsafe_allow_html=True)
+            st.write("Total Data: 195")
+>>>>>>> 0b90a5515865f99e8b347cd292b9dba6682398b3
 
         # Show the grouped bar graph in the second column
         grouped_bar_graph()
