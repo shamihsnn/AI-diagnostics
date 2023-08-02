@@ -20,7 +20,7 @@ def card_layout():
             top: 10px;
         }
         .reportview-container .main {
-            background-color: white;
+            background-color: #f8f9fa;
             padding: 2rem;
             box-shadow: 2px 2px 5px lightgrey;
             border-radius: 10px;
